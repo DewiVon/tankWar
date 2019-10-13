@@ -10,6 +10,9 @@ public class TankFrame  extends Frame {
 
     int x = 200, y = 200;
 
+    Dir dir = Dir.DOWN;
+
+    private static final int SPEED = 10;
     public TankFrame(){
         setSize(800,600);
         setVisible(true);
@@ -39,7 +42,26 @@ public class TankFrame  extends Frame {
     @Override
     public void paint(Graphics g){
         g.fillRect(x,y,50,50);
+        switch (dir){
+            case UP:
+                y -= SPEED;
+                break;
+            case DOWN:
+                y += SPEED;
+                break;
+            case RIGHT:
+                x += SPEED;
+                break;
+            case LEFT:
+                x -= SPEED;
+                break;
+            default:
+                break;
+        }
+
     }
+
+
 
     /**
      * 上下左右移动
@@ -79,6 +101,8 @@ public class TankFrame  extends Frame {
                 default:
                     break;
             }
+            setMainTankDir();
+
             repaint(); //自动调用 paint()
 
         }
@@ -108,7 +132,19 @@ public class TankFrame  extends Frame {
                     break;
             }
         }
+
+        /**
+         * 设置主战坦克的方向
+         * */
+        public void setMainTankDir(){
+            if(bU) dir = Dir.UP;
+            if(bD) dir = Dir.DOWN;
+            if(bL) dir = Dir.LEFT;
+            if(bR) dir = Dir.RIGHT;
+        }
+
     }
+
 
 
 }
