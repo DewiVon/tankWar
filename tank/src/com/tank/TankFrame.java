@@ -8,11 +8,8 @@ import java.awt.event.WindowEvent;
 
 public class TankFrame  extends Frame {
 
-    int x = 200, y = 200;
+    Tank tank  = new Tank(200, 200, Dir.DOWN);
 
-    Dir dir = Dir.DOWN;
-
-    private static final int SPEED = 10;
     public TankFrame(){
         setSize(800,600);
         setVisible(true);
@@ -41,24 +38,7 @@ public class TankFrame  extends Frame {
      * */
     @Override
     public void paint(Graphics g){
-        g.fillRect(x,y,50,50);
-        switch (dir){
-            case UP:
-                y -= SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case LEFT:
-                x -= SPEED;
-                break;
-            default:
-                break;
-        }
-
+        tank.paint(g);
     }
 
 
@@ -137,10 +117,10 @@ public class TankFrame  extends Frame {
          * 设置主战坦克的方向
          * */
         public void setMainTankDir(){
-            if(bU) dir = Dir.UP;
-            if(bD) dir = Dir.DOWN;
-            if(bL) dir = Dir.LEFT;
-            if(bR) dir = Dir.RIGHT;
+            if(bU) tank.setDir(Dir.UP);
+            if(bD) tank.setDir(Dir.DOWN);
+            if(bL) tank.setDir(Dir.LEFT);
+            if(bR) tank.setDir(Dir.RIGHT);
         }
 
     }
