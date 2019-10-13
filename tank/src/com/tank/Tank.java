@@ -6,9 +6,9 @@ import java.awt.*;
  * 封装tank类 封装 基层 多态*/
 public class Tank {
 
-    int x = 200, y = 200;
+     private int x = 200, y = 200;
 
-    Dir dir = Dir.DOWN;
+     private Dir dir = Dir.DOWN;
 
     private static final int SPEED = 10;
 
