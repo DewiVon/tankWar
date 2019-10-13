@@ -91,26 +91,10 @@ public class TankFrame  extends Frame {
         public void keyReleased(KeyEvent e) {
             System.out.println("按键弹起相应");
             int keyCode = e.getKeyCode();
-            switch (keyCode){
-                case KeyEvent.VK_LEFT:
-                    /* x -= 10;*/
-                    bL = false;
-                    break;
-                case  KeyEvent.VK_RIGHT:
-                    /*x += 10;*/
-                    bR = false;
-                    break;
-                case  KeyEvent.VK_UP:
-                    /*y -= 10;*/
-                    bU = false;
-                    break;
-                case    KeyEvent.VK_DOWN:
-                    /*y += 10;*/
-                    bD = false;
-                    break;
-                default:
-                    break;
-            }
+             bL = false;
+             bR = false;
+             bU = false;
+             bD = false;
         }
 
         /**
