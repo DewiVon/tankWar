@@ -90,21 +90,28 @@ public class TankFrame  extends Frame {
         @Override
         public void keyReleased(KeyEvent e) {
             System.out.println("按键弹起相应");
-            int keyCode = e.getKeyCode();
              bL = false;
              bR = false;
              bU = false;
              bD = false;
+             setMainTankDir();
         }
 
         /**
          * 设置主战坦克的方向
          * */
         public void setMainTankDir(){
-            if(bU) tank.setDir(Dir.UP);
-            if(bD) tank.setDir(Dir.DOWN);
-            if(bL) tank.setDir(Dir.LEFT);
-            if(bR) tank.setDir(Dir.RIGHT);
+            if(!bU && !bD && !bL && !bR){
+                tank.setMoving(false);
+            }else{
+                tank.setMoving(true);
+                if(bU) tank.setDir(Dir.UP);
+                if(bD) tank.setDir(Dir.DOWN);
+                if(bL) tank.setDir(Dir.LEFT);
+                if(bR) tank.setDir(Dir.RIGHT);
+            }
+
+
         }
 
     }
