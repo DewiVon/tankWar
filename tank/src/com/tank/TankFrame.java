@@ -1,5 +1,7 @@
 package com.tank;
 
+import jdk.nashorn.internal.ir.CallNode;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -9,6 +11,7 @@ import java.awt.event.WindowEvent;
 public class TankFrame  extends Frame {
 
     Tank tank  = new Tank(200, 200, Dir.DOWN);
+    Bullet bullet =    new Bullet(200, 200, Dir.DOWN);
 
     public TankFrame(){
         setSize(800,600);
@@ -39,6 +42,7 @@ public class TankFrame  extends Frame {
     @Override
     public void paint(Graphics g){
         tank.paint(g);
+        bullet.paint(g);
     }
 
 

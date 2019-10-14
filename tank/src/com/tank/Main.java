@@ -6,9 +6,9 @@ public class Main {
 
         TankFrame tankFrame = new TankFrame();
         //黑窗口自动移动
-      /*  while(true){
+        while(true){
             Thread.sleep(50);
             tankFrame.repaint();
-        }*/
+        }
     }
 }
