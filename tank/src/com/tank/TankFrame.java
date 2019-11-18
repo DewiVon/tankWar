@@ -13,8 +13,10 @@ public class TankFrame  extends Frame {
     Tank tank  = new Tank(200, 200, Dir.DOWN);
     Bullet bullet =    new Bullet(200, 200, Dir.DOWN);
 
+    static final int GAME_WIDTH=800,GAME_HEIGHT=600;
+
     public TankFrame(){
-        setSize(800,600);
+        setSize(GAME_WIDTH,GAME_HEIGHT);
         setVisible(true);
         setTitle("坦克大战");
         //设置窗口大小不可以调整
@@ -34,11 +36,32 @@ public class TankFrame  extends Frame {
 
     }
 
+    Image offScreenImage = null;
+
+    /**
+     * 双缓冲
+     * */
+    @Override
+    public void update(Graphics g){
+        if(offScreenImage == null){
+            offScreenImage = this.createImage(GAME_WIDTH,GAME_HEIGHT);
+        }
+        Graphics graphics = offScreenImage.getGraphics();
+        Color color = graphics.getColor();
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+        graphics.setColor(color);
+        paint(graphics);
+        g.drawImage(offScreenImage, 0, 0, null);
+
+    }
+
+
     /**
      * paint 是将背景清楚重新在画一遍
      *
      * 内部类，只有A类用B类，就可以将B类作为A类的内部类就可以了。
-     * */
+            * */
     @Override
     public void paint(Graphics g){
         tank.paint(g);
