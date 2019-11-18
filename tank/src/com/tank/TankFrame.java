@@ -1,17 +1,18 @@
 package com.tank;
 
-import jdk.nashorn.internal.ir.CallNode;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.*;
+import java.util.List;
 
 public class TankFrame  extends Frame {
 
-    Tank   tank   =    new Tank(200, 200, Dir.DOWN,this);
-    Bullet bullet =    new Bullet(200, 200, Dir.DOWN);
+    Tank            tank     =    new Tank(200, 200, Dir.DOWN,this);
+    List<Bullet>    listBullet     =    new ArrayList<>();
+
 
     static final int GAME_WIDTH=800,GAME_HEIGHT=600;
 
@@ -64,8 +65,19 @@ public class TankFrame  extends Frame {
             * */
     @Override
     public void paint(Graphics g){
+        Color color = g.getColor();
+        g.setColor(Color.WHITE);
+        g.drawString("子弹的数量："+listBullet.size(),10 ,50 );
+        g.setColor(color);
         tank.paint(g);
-        bullet.paint(g);
+        //新画法
+        for (int i = 0; i < listBullet.size(); i++) {
+            listBullet.get(i).paint(g);
+        }
+        // 老画法 这种画法会出Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+     /*   for (Bullet bullet1 : listBullet) {
+            bullet1.paint(g);
+        }*/
     }
 
 

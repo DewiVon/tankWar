@@ -4,4 +4,10 @@
     1.3:首先把该画出的内容放在内存
     1.4:把内存的东西放到显存中，然后把显存中的内容一次性展示到屏幕上。
 2：持有一个对象的引用。
+    Tank 持有一个TankFrame的对象
+3：内存泄漏问题，子弹list在无限增加
+    3.1：listBullet。java的容器，经常会出现内存泄漏。
+    3.2：子弹飞出边界，remove
+    3.3：Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+
 
