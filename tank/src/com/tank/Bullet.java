@@ -2,6 +2,9 @@ package com.tank;
 
 import java.awt.*;
 
+/**
+ * 子弹类
+ * */
 public class Bullet {
     private static final  int SPEED = 10;
     private static final  int WIDTH = 30, HEIGHT = 30;
