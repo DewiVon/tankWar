@@ -9,5 +9,12 @@
     3.1：listBullet。java的容器，经常会出现内存泄漏。
     3.2：子弹飞出边界，remove
     3.3：Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+4：搞出一排敌人
+    4.1：
+5：坦克换成图片
+    5.1：
+6：classloader
+    6.1： t1.class,t2.class 把.class的文件loader到内存中
+
 
 
